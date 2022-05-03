@@ -24,6 +24,7 @@
     "test": "mocha --require @babel/register",
     "autotest": "npm run test -- --watch",
     "coverage": "nyc --reporter=text npm run test",
+    "coverage-verbose": "nyc --reporter=lcov --reporter=text-summary npm run test",
     "mutation": "stryker run",
     "format": "prettier --write ."
   }
