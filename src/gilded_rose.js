@@ -26,19 +26,19 @@ class Shop {
         continue;
       }
       if (this.items[i].name.includes("Backstage pass")) {
-        if (this.items[i].sellIn > 0){
+        this.items[i].sellIn--;
+        if (this.items[i].sellIn >= 0){
           if (this.items[i].quality < 50) {
             this.items[i].quality++;
           }
-          if (this.items[i].sellIn < 6 && this.items[i].quality < 49) {
+          if (this.items[i].sellIn < 5 && this.items[i].quality < 49) {
             this.items[i].quality += 2;
-          } else if (this.items[i].sellIn < 11 && this.items[i].quality < 50) {
+          } else if (this.items[i].sellIn < 10 && this.items[i].quality < 50) {
             this.items[i].quality++;
           }
         } else {
           this.items[i].quality = 0;
         }
-        this.items[i].sellIn--;
         continue;
       }
       this.items[i].sellIn--;
