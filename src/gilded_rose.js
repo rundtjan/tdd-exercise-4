@@ -59,11 +59,14 @@ class Shop {
         case "Aged Brie":
           this.updateBrie(i);
           break;
+        case "Backstage pass":
+          this.updateBackstagePass(i);
+          break;
       }
       if (this.items[i].name == "Aged Brie") {
         console.log('brie')
       } else if (this.items[i].name.includes("Backstage pass")) {
-        this.updateBackstagePass(i);
+        console.log('pass')
       } else {
         this.updateStandard(i, 1);
       }
