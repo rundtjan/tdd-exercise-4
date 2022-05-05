@@ -67,6 +67,8 @@ class Shop {
         console.log('brie')
       } else if (this.items[i].name.includes("Backstage pass")) {
         console.log('pass')
+      } else if (this.items[i].name == "Conjured"){
+        this.updateStandard(i, 2);
       } else {
         this.updateStandard(i, 1);
       }

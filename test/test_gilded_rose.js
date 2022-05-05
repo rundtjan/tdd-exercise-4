@@ -162,5 +162,19 @@ describe("Gilded Rose", function () {
     expect(items[0].sellIn).to.equal(1);
   });
 
+  it(`If the name of the item is Conjured, and it's sellin-value is above 0, its quality value will
+      be reduced by two`, function () {
+    const gildedRose = new Shop([new Item("Conjured", 1, 50)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(48);
+  });
+
+  it(`If the name of the item is Conjured, and it's sellin-value is under 0, its quality value will
+      be reduced by four`, function () {
+    const gildedRose = new Shop([new Item("Conjured", 0, 50)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(46);
+  });
+
 
 });
