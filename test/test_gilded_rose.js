@@ -22,7 +22,7 @@ describe("Gilded Rose", function () {
   });
 
   it(`If the name of the item is not Aged Brie, Backstage passes to a TAFKAL80ETC
-      concert or Sulfuras, Hand of Ragnaros, and has a quality value of 1, 
+      concert or Sulfuras, Hand of Ragnaros, and has a quality value above zero, and a sellIn-value of 0, 
       update quality will lower quality by one.`, function () {
     const gildedRose = new Shop([new Item("foo", 0, 1)]);
     const items = gildedRose.updateQuality();
@@ -45,24 +45,15 @@ describe("Gilded Rose", function () {
     expect(items[0].quality).to.equal(1);
   });
 
-  it(`If the name of the item is not Aged Brie, Backstage passes to a TAFKAL80ETC 
-      concert but it is Sulfuras, Hand of Ragnaros, and has a quality value above 0, 
+  it(`If the name of the item is Sulfuras, Hand of Ragnaros, and has a quality value above 0, 
       update quality will not lower quality by one.`, function () {
     const gildedRose = new Shop([new Item("Sulfuras, Hand of Ragnaros", 0, 1)]);
     const items = gildedRose.updateQuality();
     expect(items[0].quality).to.equal(1);
   });
 
-  it(`If the name of the item is not Aged Brie, Backstage passes to a TAFKAL80ETC 
-      concert but it is Sulfuras, Hand of Ragnaros, and has a quality value above 1, 
-      update quality will not lower quality by one.`, function () {
-    const gildedRose = new Shop([new Item("Sulfuras, Hand of Ragnaros", 0, 2)]);
-    const items = gildedRose.updateQuality();
-    expect(items[0].quality).to.equal(2);
-  });
 
-  it(`If the name of the item is not Aged Brie, Backstage passes to a TAFKAL80ETC 
-      concert but it is Sulfuras, Hand of Ragnaros, and has a quality value above 0
+  it(`If the name of the item is Sulfuras, Hand of Ragnaros, and has a quality value above 0
       and a negative sellin-value, update quality will not lower quality by one.
       `, function () {
     const gildedRose = new Shop([new Item("Sulfuras, Hand of Ragnaros", -1, 1)]);
