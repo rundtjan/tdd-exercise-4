@@ -17,7 +17,7 @@ class Shop {
   }
 
   updateBrie(i){
-    if (this.sellIn > 0){
+    if (this.items[i].sellIn > 0){
       this.items[i].quality++;
     } else {
       this.items[i].quality += 2;
