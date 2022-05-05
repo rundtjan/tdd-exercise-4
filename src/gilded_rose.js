@@ -40,13 +40,12 @@ class Shop {
         }
         this.items[i].sellIn--;
         continue;
-      } //else {
-        this.items[i].quality--;
-      //}
-
+      }
       this.items[i].sellIn--;
-      if (this.items[i].sellIn < 0) {
+      if (this.items[i].sellIn >= 0) {
         this.items[i].quality--;
+      } else {
+        this.items[i].quality -= 2; 
       }
       if (this.items[i].quality > 50 ) this.items[i].quality = 50;
       if (this.items[i].quality < 0) this.items[i].quality = 0;
