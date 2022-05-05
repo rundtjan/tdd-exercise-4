@@ -37,6 +37,14 @@ class Shop {
     } 
   }
 
+  updateStandard(i, factor){
+    if (this.items[i].sellIn >= 0) {
+      this.items[i].quality -= 1 * factor;
+    } else {
+      this.items[i].quality -= 2 * factor; 
+    }
+  }
+
   updateQuality() {
     for (var i = 0; i < this.items.length; i++) {
       if (this.items[i].name == "Sulfuras, Hand of Ragnaros") continue;
@@ -46,11 +54,7 @@ class Shop {
       } else if (this.items[i].name.includes("Backstage pass")) {
         this.updateBackstagePass(i);
       } else {
-      if (this.items[i].sellIn >= 0) {
-        this.items[i].quality--;
-      } else {
-        this.items[i].quality -= 2; 
-      }
+        this.updateStandard(i, 1);
     }
     this.checkBoundaries(i);
     }
