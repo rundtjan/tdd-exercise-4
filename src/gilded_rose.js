@@ -34,7 +34,7 @@ class Shop {
         } else if (this.items[i].sellIn < 11 && this.items[i].quality < 50) {
           this.items[i].quality++;
         }
-      } else if (this.items[i].quality > 0){
+      } else {
         this.items[i].quality--;
       }
 
@@ -52,6 +52,8 @@ class Shop {
           }
         }
       }
+      if (this.items[i].quality > 50 ) this.items[i].quality = 50;
+      if (this.items[i].quality < 0) this.items[i].quality = 0;
     }
 
     return this.items;
