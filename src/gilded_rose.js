@@ -45,18 +45,29 @@ class Shop {
     }
   }
 
+  parseProduct(name){
+    if (name.includes("Backstage pass")) return "Backstage pass"
+    else return name
+  }
+
   updateQuality() {
     for (var i = 0; i < this.items.length; i++) {
       if (this.items[i].name == "Sulfuras, Hand of Ragnaros") continue;
       this.items[i].sellIn--;
+      let product = this.parseProduct(this.items[i].name);
+      switch(product){
+        case "Aged Brie":
+          this.updateBrie(i);
+          break;
+      }
       if (this.items[i].name == "Aged Brie") {
-        this.updateBrie(i);
+        console.log('brie')
       } else if (this.items[i].name.includes("Backstage pass")) {
         this.updateBackstagePass(i);
       } else {
         this.updateStandard(i, 1);
-    }
-    this.checkBoundaries(i);
+      }
+      this.checkBoundaries(i);
     }
 
     return this.items;
