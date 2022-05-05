@@ -11,6 +11,11 @@ class Shop {
     this.items = items;
   }
 
+  checkBoundaries(i){
+    if (this.items[i].quality > 50) this.items[i].quality = 50;
+    if (this.items[i].quality < 0) this.items[i].quality = 0;
+  }
+
   updateQuality() {
     for (var i = 0; i < this.items.length; i++) {
       if (this.items[i].name == "Sulfuras, Hand of Ragnaros") continue;
@@ -45,8 +50,9 @@ class Shop {
       } else {
         this.items[i].quality -= 2; 
       }
-      if (this.items[i].quality > 50 ) this.items[i].quality = 50;
-      if (this.items[i].quality < 0) this.items[i].quality = 0;
+      this.checkBoundaries(i);
+      //if (this.items[i].quality > 50 ) this.items[i].quality = 50;
+      //if (this.items[i].quality < 0) this.items[i].quality = 0;
     }
 
     return this.items;
