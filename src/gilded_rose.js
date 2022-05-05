@@ -27,7 +27,7 @@ class Shop {
         } else {
           this.items[i].quality += 2;
         }
-        if (this.items[i].quality > 50) this.items[i].quality = 50;
+        this.checkBoundaries(i);
         continue;
       }
       if (this.items[i].name.includes("Backstage pass")) {
@@ -51,8 +51,6 @@ class Shop {
         this.items[i].quality -= 2; 
       }
       this.checkBoundaries(i);
-      //if (this.items[i].quality > 50 ) this.items[i].quality = 50;
-      //if (this.items[i].quality < 0) this.items[i].quality = 0;
     }
 
     return this.items;
