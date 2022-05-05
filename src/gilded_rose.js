@@ -46,8 +46,8 @@ class Shop {
   }
 
   parseProduct(name){
-    if (name.includes("Backstage pass")) return "Backstage pass"
-    else return name
+    if (name.includes("Backstage pass")) return "Backstage pass";
+    else return name;
   }
 
   updateQuality() {
@@ -65,15 +65,8 @@ class Shop {
         case "Conjured":
           this.updateStandard(i, 2);
           break;
-      }
-      if (this.items[i].name == "Aged Brie") {
-        console.log('brie')
-      } else if (this.items[i].name.includes("Backstage pass")) {
-        console.log('pass')
-      } else if (this.items[i].name == "Conjured"){
-        console.log('con');//this.updateStandard(i, 2);
-      } else {
-        this.updateStandard(i, 1);
+        default:
+          this.updateStandard(i, 1);
       }
       this.checkBoundaries(i);
     }
