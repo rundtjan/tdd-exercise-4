@@ -13,8 +13,8 @@ class Shop {
 
   updateQuality() {
     for (var i = 0; i < this.items.length; i++) {
-      if (this.items.quality === 0) {this.sellIn--; continue;} 
       if (this.items[i].name == "Sulfuras, Hand of Ragnaros") continue;
+      if (this.items.quality === 0) {this.sellIn--; continue;} 
       if (this.items[i].name == "Aged Brie") {
         this.sellIn--;
         if (this.sellIn > 0){
@@ -25,8 +25,9 @@ class Shop {
         if (this.items[i].quality > 50) this.items[i].quality = 50;
         continue;
       }
+      this.items[i].sellIn--;
       if (this.items[i].name.includes("Backstage pass")) {
-        this.items[i].sellIn--;
+        //this.items[i].sellIn--;
         if (this.items[i].sellIn >= 0){
           if (this.items[i].quality < 50) {
             this.items[i].quality++;
@@ -41,7 +42,7 @@ class Shop {
         }
         continue;
       }
-      this.items[i].sellIn--;
+      //this.items[i].sellIn--;
       if (this.items[i].sellIn >= 0) {
         this.items[i].quality--;
       } else {
