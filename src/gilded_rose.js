@@ -28,9 +28,7 @@ class Shop {
         }
       } else if (this.items[i].name.includes("Backstage pass")) {
         if (this.items[i].sellIn >= 0){
-          if (this.items[i].quality < 50) {
-            this.items[i].quality++;
-          }
+          this.items[i].quality++;
           if (this.items[i].sellIn < 5) {
             this.items[i].quality += 2;
           } else if (this.items[i].sellIn < 10) {
