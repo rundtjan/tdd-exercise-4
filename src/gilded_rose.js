@@ -13,8 +13,19 @@ class Shop {
 
   updateQuality() {
     for (var i = 0; i < this.items.length; i++) {
+      if (this.items.quality === 0) {this.sellIn--; continue;} 
       if (this.items[i].name == "Sulfuras, Hand of Ragnaros") continue;
-      if (this.items[i].name == "Aged Brie" || this.items[i].name == "Backstage passes to a TAFKAL80ETC concert") {
+      if (this.items[i].name == "Aged Brie") {
+        this.sellIn--;
+        if (this.sellIn > 0){
+          this.items[i].quality++;
+        } else {
+          this.items[i].quality += 2;
+        }
+        if (this.items[i].quality > 50) this.items[i].quality = 50;
+        continue;
+      }
+      if (this.items[i].name == "Backstage passes to a TAFKAL80ETC concert") {
         if (this.items[i].quality < 50) {
           this.items[i].quality++;
         }
