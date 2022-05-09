@@ -1,18 +1,6 @@
 # [TDD MOOC](https://tdd.mooc.fi/): Legacy code
 
-This is an exercise to practice dealing with legacy code. There are three things you need to do:
-
-1. **Write test for the code [src/gilded_rose.js](src/gilded_rose.js), until it has 100% mutation test coverage.**
-2. **Refactor the code to make it understandable.**
-3. **Add the "conjured items" feature described in [Gilded Rose requirements](GildedRoseRequirements.txt).**
-
-When writing the tests, at first use just line coverage (`npm run coverage`) to find non-tested lines. After all lines
-are tested, switch to using mutation coverage (`npm run mutation`) and improve your tests. (In real projects, mutation
-coverage typically takes many minutes to run, so it's impractical when you need fast feedback.)
-
-When refactoring, first try to see how far you can get without understanding the problem domain (i.e. use mechanical,
-provably correct refactorings). Then read the [Gilded Rose requirements](GildedRoseRequirements.txt) document to
-understand the problem domain and get a new perspective for improving the design.
+This is an exercise to practice dealing with legacy code. For a course at Hki Uni.
 
 ---
 
